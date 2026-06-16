@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Allura&family=Alex+Brush&family=Herr+Von+Muellerhoff&family=Tangerine:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f5f3ff;
+  --color-primary-100: #ede9fe;
+  --color-primary-200: #ddd6fe;
+  --color-primary-300: #c4b5fd;
+  --color-primary-400: #a78bfa;
+  --color-primary-500: #8b5cf6;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6d28d9;
+  --color-primary-800: #5b21b6;
+  --color-primary-900: #4c1d95;
+  --color-primary-950: #2e1065;
+
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-signature: 'Allura', cursive;
+  --font-signature-alt: 'Tangerine', cursive;
+  --font-signature-fancy: 'Herr Von Muellerhoff', cursive;
+
+  --font-poppins: 'Poppins', sans-serif;
+  --font-geist: 'Geist', system-ui, sans-serif;
+
+  --color-cream: #F6F1EA;
+  --color-secondary-cream: #E4D3C7;
+  --color-muted-peach: #D9B7A6;
+  --color-terracotta-primary: #8B3116;
+  --color-terracotta-dark: #6F220F;
+  --color-accent-orange: #A33614;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50 antialiased selection:bg-primary-500/30 selection:text-primary-900 dark:selection:text-primary-100;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), var(--font-sans);
+    @apply font-bold tracking-tight text-neutral-900 dark:text-neutral-50;
+  }
+}
+
+/* Custom layout utility classes */
+@utility container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+
+  @media (min-width: 640px) {
+    max-width: 640px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    max-width: 768px;
+  }
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @media (min-width: 1280px) {
+    max-width: 1280px;
+  }
+  @media (min-width: 1536px) {
+    max-width: 1400px;
+  }
+}
+
+@utility bg-rust-gradient {
+  background: linear-gradient(
+    135deg,
+    #A33614 0%,
+    #8B3116 55%,
+    #742511 100%
+  );
+}
+
