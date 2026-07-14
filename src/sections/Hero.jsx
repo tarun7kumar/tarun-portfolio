@@ -1,31 +1,20 @@
+import { motion, useReducedMotion } from 'framer-motion';
 import tarunCutout from '@/assets/images/tarun-cutout.png';
 import signatureImg from '@/assets/images/signature.png';
+import { fadeUp, fadeIn, lineExpand, ease, hover, tap } from '@/utils/motion';
 
 export default function Hero() {
-  const YoutubeIcon = () => (
-    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-      <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+  const shouldReduce = useReducedMotion();
+
+  const GithubIcon = ({ className = "w-5 h-5" }) => (
+    <svg className={`${className} fill-current`} viewBox="0 0 24 24">
+      <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
     </svg>
   );
 
-  const InstagramIcon = () => (
-    <svg className="w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  );
-
-  const XIcon = () => (
-    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-
-  const SearchIcon = ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+  const LinkedinIcon = ({ className = "w-5 h-5" }) => (
+    <svg className={`${className} fill-current`} viewBox="0 0 24 24">
+      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
     </svg>
   );
 
@@ -35,42 +24,64 @@ export default function Hero() {
     </svg>
   );
 
+  // Animation helpers — returns static props when reduced motion is preferred
+  const anim = (variant) => shouldReduce ? {} : variant;
+  const animInitial = (variant) => shouldReduce ? {} : { initial: variant.initial };
+  const animAnimate = (variant) => shouldReduce ? {} : { animate: variant.animate || variant.whileInView, transition: variant.transition };
+
   return (
     <section id="hero" className="w-full min-h-screen relative overflow-hidden bg-[#8B3116] font-poppins text-cream">
       {/* Desktop Layout (md and up) */}
       <div className="hidden md:flex h-screen w-full select-none">
 
         {/* Left Sidebar - 90px width, Solid deep rust */}
-        <div className="w-[90px] min-w-[90px] bg-[#8B3116] flex flex-col justify-between items-center border-r border-cream/20 z-30">
+        <motion.div
+          {...animInitial(fadeIn(0))}
+          {...animAnimate(fadeIn(0))}
+          className="w-[90px] min-w-[90px] bg-[#8B3116] flex flex-col justify-between items-center border-r border-cream/20 z-30"
+        >
           {/* Top Square Logo Box */}
           <div className="w-[90px] h-[70px] border-b border-cream/20 flex items-center justify-center">
           </div>
 
-          {/* Social Icons - Centered vertically with consistent vertical padding */}
-          <div className="flex-grow flex flex-col justify-center items-center gap-8 text-cream/85">
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors duration-200">
-              <YoutubeIcon />
-            </a>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors duration-200">
-              <XIcon />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors duration-200">
-              <InstagramIcon />
-            </a>
+          {/* Social Icons - Positioned at the bottom, above the horizontal divider line */}
+          <div className="flex-grow flex flex-col justify-end items-center gap-5 pb-8 text-cream/85">
+            <motion.a
+              href="https://github.com/tarun7kumar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full border border-cream/20 bg-cream/5 flex items-center justify-center hover:bg-cream hover:text-[#8B3116] hover:border-transparent transition-all duration-300 shadow-md cursor-pointer"
+              whileHover={shouldReduce ? {} : hover.scale}
+              whileTap={shouldReduce ? {} : tap.press}
+            >
+              <GithubIcon className="w-6 h-6" />
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/tarun7kumar/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full border border-cream/20 bg-cream/5 flex items-center justify-center hover:bg-cream hover:text-[#8B3116] hover:border-transparent transition-all duration-300 shadow-md cursor-pointer"
+              whileHover={shouldReduce ? {} : hover.scale}
+              whileTap={shouldReduce ? {} : tap.press}
+            >
+              <LinkedinIcon className="w-6 h-6" />
+            </motion.a>
           </div>
 
           {/* Bottom Back Button Box */}
           <div className="w-[90px] h-[70px] border-t border-cream/20 flex items-center justify-center">
           </div>
-        </div>
+        </motion.div>
 
         {/* Middle Image Column - 18% width */}
-        <div className="w-[18%] bg-[#F6F1EA] flex flex-col justify-between relative border-r border-cream/20 z-30 overflow-visible">
+        <motion.div
+          initial={shouldReduce ? {} : { opacity: 0, x: -30 }}
+          animate={shouldReduce ? {} : { opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: ease.smooth, delay: 0.15 }}
+          className="w-[18%] bg-[#F6F1EA] flex flex-col justify-between relative border-r border-cream/20 z-30 overflow-visible"
+        >
           {/* Top navigation - Height aligned with sidebar top box */}
           <div className="h-[70px] flex items-center justify-end px-8 text-[11px] font-semibold tracking-widest text-[#8B3116] z-20">
-            <button className="hover:opacity-80 transition-opacity cursor-pointer">
-              <SearchIcon className="w-4 h-4" />
-            </button>
           </div>
 
           {/* Overflow Photo - scaled larger to dominate space */}
@@ -81,7 +92,7 @@ export default function Hero() {
               className="h-full w-[200%] max-w-none object-contain object-bottom select-none pointer-events-auto filter drop-shadow-[15px_10px_20px_rgba(0,0,0,0.22)] transform translate-x-[18%] scale-[1.45] origin-bottom z-30"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Content Column - bg-rust-gradient */}
         <div className="flex-1 bg-rust-gradient flex flex-col justify-between pl-[100px] lg:pl-[140px] xl:pl-[180px] pr-[72px] pt-[48px] pb-[48px] text-cream relative z-20 overflow-y-auto overflow-x-hidden">
@@ -93,7 +104,12 @@ export default function Hero() {
           <div className="flex-grow flex flex-col justify-start pt-16 xl:pt-22 max-w-4xl pr-4">
 
             {/* Header name + signature overlapping upper-right portion */}
-            <div className="relative mb-6 select-none flex items-end justify-between pr-4">
+            <motion.div
+              initial={shouldReduce ? {} : { opacity: 0, y: 30 }}
+              animate={shouldReduce ? {} : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: ease.smooth, delay: 0.3 }}
+              className="relative mb-6 select-none flex items-end justify-between pr-4"
+            >
               <h1 className="text-[5rem] md:text-[6.2vw] xl:text-[7.5rem] font-geist font-extrabold tracking-[-0.04em] leading-[0.9] text-cream uppercase">
                 TARUN
               </h1>
@@ -104,43 +120,63 @@ export default function Hero() {
                   className="w-full h-auto select-none pointer-events-none drop-shadow-lg invert brightness-[2.5] mix-blend-screen opacity-75 transform -rotate-6"
                 />
               </div>
-            </div>
+            </motion.div>
 
             {/* Profile Grid - 3-column layout */}
-            <div className="flex items-center gap-6 md:gap-[40px] mb-5">
+            <motion.div
+              initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
+              animate={shouldReduce ? {} : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: ease.smooth, delay: 0.5 }}
+              className="flex items-center gap-6 md:gap-[40px] mb-5"
+            >
               <div>
-                <span className="block font-poppins font-normal text-[13px] leading-[1.5] uppercase tracking-wider text-[#D8B7A2] mb-1">Real Name</span>
-                <span className="font-poppins font-medium text-[17px] md:text-[18px] leading-[1.4] text-[#F6F1EA] block">Tarun Kumar</span>
+                <span className="block font-poppins font-normal text-[13px] leading-[1.5] uppercase tracking-wider text-[#D8B7A2] mb-1">Full Name</span>
+                <span className="font-poppins font-normal text-[17px] md:text-[18px] leading-[1.4] text-[#F6F1EA] block">Tarun Kumar</span>
               </div>
               <div className="h-10 w-[1px] bg-[rgba(246,241,234,0.2)]"></div>
               <div>
-                <span className="block font-poppins font-normal text-[13px] leading-[1.5] uppercase tracking-wider text-[#D8B7A2] mb-1">Nickname</span>
-                <span className="font-poppins font-medium text-[17px] md:text-[18px] leading-[1.4] text-[#F6F1EA] block">Tarun</span>
+                <span className="block font-poppins font-normal text-[13px] leading-[1.5] uppercase tracking-wider text-[#D8B7A2] mb-1">Education</span>
+                <span className="font-poppins font-normal text-[17px] md:text-[18px] leading-[1.4] text-[#F6F1EA] block">B.Tech ECE</span>
               </div>
               <div className="h-10 w-[1px] bg-[rgba(246,241,234,0.2)]"></div>
               <div>
-                <span className="block font-poppins font-normal text-[13px] leading-[1.5] uppercase tracking-wider text-[#D8B7A2] mb-1">Birthday</span>
-                <span className="font-poppins font-medium text-[17px] md:text-[18px] leading-[1.4] text-[#F6F1EA] block">March 21, 2002</span>
+                <span className="block font-poppins font-normal text-[13px] leading-[1.5] uppercase tracking-wider text-[#D8B7A2] mb-1">Available</span>
+                <span className="font-poppins font-normal text-[17px] md:text-[18px] leading-[1.4] text-[#F6F1EA] block">Internships & Full-Time Roles</span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Catchphrase Section - placed immediately after the info row with tight spacing */}
-            <div className="my-4">
+            <motion.div
+              initial={shouldReduce ? {} : { opacity: 0 }}
+              animate={shouldReduce ? {} : { opacity: 1 }}
+              transition={{ duration: 0.6, ease: ease.smooth, delay: 0.65 }}
+              className="my-4"
+            >
               <p className="font-poppins font-normal text-[15px] md:text-[16px] leading-[1.6] text-cream/90 max-w-[800px] italic">
                 "Design is not just what it looks like and feels like. Design is how it works."
               </p>
-            </div>
+            </motion.div>
 
             {/* Divider */}
-            <div className="h-[1px] bg-[rgba(246,241,234,0.2)] w-full mb-4"></div>
+            <motion.div
+              initial={shouldReduce ? {} : { scaleX: 0 }}
+              animate={shouldReduce ? {} : { scaleX: 1 }}
+              transition={{ duration: 0.8, ease: ease.inOut, delay: 0.75 }}
+              className="h-[1px] bg-[rgba(246,241,234,0.2)] w-full mb-4 origin-left"
+            />
 
             {/* About Section */}
-            <div className="mt-4">
+            <motion.div
+              initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
+              animate={shouldReduce ? {} : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: ease.smooth, delay: 0.85 }}
+              className="mt-4"
+            >
               <span className="block font-poppins font-normal text-[13px] leading-[1.5] uppercase tracking-wider text-[#D8B7A2] mb-1">About</span>
               <p className="font-poppins font-normal text-[15px] md:text-[16px] leading-[1.7] text-cream/80 max-w-[800px]">
                 I enjoy working through problems that don't have obvious answers. Most of my time goes into figuring things out whether it's understanding how something works under the hood or building it from scratch until it feels right. I'm drawn to systems, logic, and clean structure, but I also care about how things look and feel when someone actually uses them. Lately, I've been focusing on improving my problem-solving skills and building projects that reflect that process.
               </p>
-            </div>
+            </motion.div>
           </div>
 
           {/* Footer Area */}
@@ -152,30 +188,46 @@ export default function Hero() {
       {/* Mobile Layout (below md) - solid #8B3116 for header, rust-gradient for content */}
       <div className="md:hidden flex flex-col min-h-screen text-cream bg-rust-gradient select-none">
         {/* Mobile Header Bar - Deep Rust */}
-        <div className="bg-[#8B3116] flex justify-between items-center px-4 py-3 border-b border-cream/20 sticky top-0 z-30">
+        <motion.div
+          initial={shouldReduce ? {} : { opacity: 0 }}
+          animate={shouldReduce ? {} : { opacity: 1 }}
+          transition={{ duration: 0.5, ease: ease.smooth }}
+          className="bg-[#8B3116] flex justify-between items-center px-4 py-3 border-b border-cream/20 sticky top-0 z-30"
+        >
           <div className="w-10 h-10">
           </div>
 
           <div className="flex items-center gap-4 text-cream/80">
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-              <YoutubeIcon />
-            </a>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer">
-              <XIcon />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <InstagramIcon />
-            </a>
+            <motion.a
+              href="https://github.com/tarun7kumar"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={shouldReduce ? {} : hover.scale}
+              whileTap={shouldReduce ? {} : tap.press}
+            >
+              <GithubIcon />
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/tarun7kumar/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={shouldReduce ? {} : hover.scale}
+              whileTap={shouldReduce ? {} : tap.press}
+            >
+              <LinkedinIcon />
+            </motion.a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Mobile Image Section */}
-        <div className="bg-[#F6F1EA] min-h-[340px] relative flex flex-col justify-between p-4 overflow-hidden">
+        <motion.div
+          initial={shouldReduce ? {} : { opacity: 0 }}
+          animate={shouldReduce ? {} : { opacity: 1 }}
+          transition={{ duration: 0.7, ease: ease.smooth, delay: 0.1 }}
+          className="bg-[#F6F1EA] min-h-[340px] relative flex flex-col justify-between p-4 overflow-hidden"
+        >
           {/* Mobile Photo Column Header */}
           <div className="flex items-center justify-end text-[10px] font-bold tracking-widest text-[#8B3116] z-20">
-            <button>
-              <SearchIcon className="w-3.5 h-3.5" />
-            </button>
           </div>
 
           {/* Photo scaled larger and aligned bottom */}
@@ -186,12 +238,17 @@ export default function Hero() {
               className="h-full max-w-full object-contain object-bottom filter drop-shadow-[8px_8px_16px_rgba(0,0,0,0.2)]"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Mobile Details Section - bg-rust-gradient */}
         <div className="flex-1 bg-rust-gradient p-6 space-y-6">
           {/* Header */}
-          <div className="flex items-end justify-between flex-wrap gap-4 relative">
+          <motion.div
+            initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
+            animate={shouldReduce ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: ease.smooth, delay: 0.2 }}
+            className="flex items-end justify-between flex-wrap gap-4 relative"
+          >
             <h1 className="text-6xl font-geist font-extrabold tracking-[-3px] leading-[0.9] text-cream">
               TARUN
             </h1>
@@ -202,38 +259,51 @@ export default function Hero() {
                 className="w-full h-auto select-none pointer-events-none drop-shadow-lg invert brightness-[2.5] mix-blend-screen opacity-80 transform -rotate-6"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Profile Quick Stats */}
-          <div className="grid grid-cols-2 gap-4 text-sm bg-white/5 p-4 rounded-lg border border-cream/20">
+          <motion.div
+            initial={shouldReduce ? {} : { opacity: 0, y: 20 }}
+            animate={shouldReduce ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: ease.smooth, delay: 0.35 }}
+            className="grid grid-cols-2 gap-4 text-sm bg-white/5 p-4 rounded-lg border border-cream/20"
+          >
             <div>
               <span className="block text-[15px] font-poppins font-normal text-muted-peach mb-1">Real Name</span>
-              <span className="font-poppins font-medium text-[18px] text-cream">Tarun Kumar</span>
+              <span className="font-poppins font-normal text-[18px] text-cream">Tarun Kumar</span>
             </div>
             <div>
-              <span className="block text-[15px] font-poppins font-normal text-muted-peach mb-1">Nickname</span>
-              <span className="font-poppins font-medium text-[18px] text-cream">Tarun</span>
+              <span className="block text-[15px] font-poppins font-normal text-muted-peach mb-1">Education</span>
+              <span className="font-poppins font-normal text-[18px] text-cream">B.Tech ECE</span>
             </div>
             <div className="col-span-2 mt-2">
-              <span className="block text-[15px] font-poppins font-normal text-muted-peach mb-1">Birthday</span>
-              <span className="font-poppins font-medium text-[18px] text-cream">March 21, 2002</span>
+              <span className="block text-[15px] font-poppins font-normal text-muted-peach mb-1">Available</span>
+              <span className="font-poppins font-normal text-[18px] text-cream">Internships & Full-Time Roles</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Catchphrase */}
-          <div>
+          <motion.div
+            initial={shouldReduce ? {} : { opacity: 0 }}
+            animate={shouldReduce ? {} : { opacity: 1 }}
+            transition={{ duration: 0.6, ease: ease.smooth, delay: 0.45 }}
+          >
             <p className="text-xl font-poppins font-medium leading-tight bg-white/5 p-4 rounded-lg border border-cream/20 text-cream">
-              Design is not just what it looks like and feels like. Design is how it works.
+              Exploring Systems, Solving problems, building with intent.
             </p>
-          </div>
+          </motion.div>
 
           {/* About */}
-          <div>
+          <motion.div
+            initial={shouldReduce ? {} : { opacity: 0, y: 20 }}
+            animate={shouldReduce ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: ease.smooth, delay: 0.55 }}
+          >
             <span className="block text-[15px] font-poppins font-normal text-muted-peach mb-1">About</span>
             <p className="text-sm md:text-[18px] font-poppins font-normal leading-[1.8] text-cream/90 bg-white/5 p-4 rounded-lg border border-cream/20">
-              I enjoy working through problems that don't have obvious answers. Most of my time goes into figuring things out whether it's understanding how something works under the hood or building it from scratch until it feels right. I'm drawn to systems, logic, and clean structure, but I also care about how things look and feel when someone actually uses them. Lately, I've been focusing on improving my problem-solving skills and building projects that reflect that process.
+              I enjoy working through problems that don't have obvious answers. Most of my time goes into figuring things out whether it's understanding how something works under the hood or building it from scratch until it feels right. I'm drawn to systems, logic, and clean structure, but I also care about how things look and feel when someone actually uses them. Lately, I've been focusing on improving my problem solving skills and building projects that reflect that process.
             </p>
-          </div>
+          </motion.div>
 
           {/* Footer URL */}
           <div className="pt-4 border-t border-cream/20 flex justify-center text-xs">
