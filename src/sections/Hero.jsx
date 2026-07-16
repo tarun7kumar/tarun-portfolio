@@ -38,7 +38,7 @@ export default function Hero() {
         <motion.div
           {...animInitial(fadeIn(0))}
           {...animAnimate(fadeIn(0))}
-          className="w-[90px] min-w-[90px] bg-[#8B3116] flex flex-col justify-between items-center border-r border-cream/20 z-30"
+          className="relative w-[90px] min-w-[90px] bg-[#8B3116] flex flex-col justify-between items-center border-r border-cream/20 z-35"
         >
           {/* Top Square Logo Box */}
           <div className="w-[90px] h-[70px] border-b border-cream/20 flex items-center justify-center">
@@ -86,11 +86,18 @@ export default function Hero() {
 
           {/* Overflow Photo - scaled larger to dominate space */}
           <div className="absolute left-0 bottom-0 w-full h-[92%] overflow-visible pointer-events-none flex justify-center">
-            <img
-              src={tarunCutout}
-              alt="Tarun"
-              className="h-full w-[200%] max-w-none object-contain object-bottom select-none pointer-events-auto filter drop-shadow-[15px_10px_20px_rgba(0,0,0,0.22)] transform translate-x-[18%] scale-[1.45] origin-bottom z-30"
-            />
+            <motion.div
+              initial={shouldReduce ? {} : { opacity: 0, scale: 0.96, y: 30 }}
+              animate={shouldReduce ? {} : { opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              className="h-full flex justify-center origin-bottom"
+            >
+              <img
+                src={tarunCutout}
+                alt="Tarun"
+                className="h-full w-[200%] max-w-none object-contain object-bottom select-none pointer-events-auto filter drop-shadow-[15px_10px_20px_rgba(0,0,0,0.22)] transform translate-x-[18%] scale-[1.45] origin-bottom z-30"
+              />
+            </motion.div>
           </div>
         </motion.div>
 
@@ -153,7 +160,7 @@ export default function Hero() {
               className="my-4"
             >
               <p className="font-poppins font-normal text-[15px] md:text-[16px] leading-[1.6] text-cream/90 max-w-[800px] italic">
-                "Design is not just what it looks like and feels like. Design is how it works."
+                "exploring systems , solving problems , building with intent"
               </p>
             </motion.div>
 
@@ -232,11 +239,18 @@ export default function Hero() {
 
           {/* Photo scaled larger and aligned bottom */}
           <div className="absolute inset-x-0 bottom-0 h-[92%] flex justify-center">
-            <img
-              src={tarunCutout}
-              alt="Tarun"
-              className="h-full max-w-full object-contain object-bottom filter drop-shadow-[8px_8px_16px_rgba(0,0,0,0.2)]"
-            />
+            <motion.div
+              initial={shouldReduce ? {} : { opacity: 0, scale: 0.96, y: 30 }}
+              animate={shouldReduce ? {} : { opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              className="h-full flex justify-center origin-bottom"
+            >
+              <img
+                src={tarunCutout}
+                alt="Tarun"
+                className="h-full max-w-full object-contain object-bottom filter drop-shadow-[8px_8px_16px_rgba(0,0,0,0.2)]"
+              />
+            </motion.div>
           </div>
         </motion.div>
 
@@ -289,7 +303,7 @@ export default function Hero() {
             transition={{ duration: 0.6, ease: ease.smooth, delay: 0.45 }}
           >
             <p className="text-xl font-poppins font-medium leading-tight bg-white/5 p-4 rounded-lg border border-cream/20 text-cream">
-              Exploring Systems, Solving problems, building with intent.
+              exploring systems , solving problems , building with intent
             </p>
           </motion.div>
 

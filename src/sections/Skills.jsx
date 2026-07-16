@@ -167,11 +167,26 @@ export default function Skills() {
                   <motion.span
                     key={skill.name}
                     variants={shouldReduce ? {} : pillVariants}
-                    whileHover={shouldReduce ? {} : hover.liftSubtle}
-                    className="inline-flex items-center gap-2 bg-[#F6F1EA] text-[#3a2a20] px-4 py-2 rounded-full text-[13px] sm:text-[14px] font-poppins font-medium border border-transparent hover:border-[#A33614]/25 hover:bg-white hover:shadow-sm cursor-default transition-all duration-250 group/pill"
+                    whileHover={
+                      shouldReduce
+                        ? {}
+                        : {
+                            scale: 1.08,
+                            y: -4,
+                            boxShadow:
+                              '0 8px 24px rgba(163, 54, 20, 0.15), 0 2px 8px rgba(163, 54, 20, 0.08)',
+                            transition: {
+                              type: 'spring',
+                              stiffness: 400,
+                              damping: 18,
+                            },
+                          }
+                    }
+                    whileTap={shouldReduce ? {} : { scale: 0.95 }}
+                    className="inline-flex items-center gap-2 bg-[#F6F1EA] text-[#3a2a20] px-4 py-2 rounded-full text-[13px] sm:text-[14px] font-poppins font-medium border border-transparent hover:border-[#A33614]/30 hover:bg-white cursor-default transition-colors duration-200 group/pill select-none"
                   >
                     <i
-                      className={`${skill.icon} text-[16px] text-[#8B3116]/60 group-hover/pill:text-[#A33614] transition-colors duration-250`}
+                      className={`${skill.icon} text-[16px] text-[#8B3116]/60 group-hover/pill:text-[#A33614] transition-colors duration-200`}
                     />
                     {skill.name}
                   </motion.span>

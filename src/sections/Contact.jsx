@@ -100,10 +100,10 @@ export default function Contact() {
               className="text-center mb-10 sm:mb-14 md:mb-16"
             >
               <span className="inline-block text-[12px] font-poppins font-semibold text-[#A33614] tracking-wider uppercase mb-4">
-                Let's Get Connected
+                Get in Touch
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-geist font-extrabold text-[#F6F1EA] tracking-[-0.03em]">
-                Let's Build Something Together
+                Open to Opportunities.
               </h2>
             </motion.div>
 
@@ -122,8 +122,7 @@ export default function Contact() {
                     Let's Talk
                   </h3>
                   <p className="font-poppins text-[14px] sm:text-[15px] leading-[1.7] text-[#F6F1EA]/55 mb-6">
-                    Whether you have a question, a project in mind, or just want
-                    to say hi — I'll try my best to get back to you!
+                    Open to internships, full-time opportunities, and exciting projects. If you'd like to collaborate or just say hello, I'd love to hear from you.
                   </p>
                   <a
                     href="mailto:tkofficial2004@gmail.com"
@@ -249,8 +248,7 @@ export default function Contact() {
               className="mt-14 sm:mt-16 md:mt-20 pt-6 sm:pt-8 border-t border-[#F6F1EA]/10 text-center"
             >
               <p className="font-poppins text-[12px] text-[#F6F1EA]/30 uppercase tracking-[0.15em] font-medium">
-                © {new Date().getFullYear()} Tarun Kumar. Crafted with Heritage
-                & Tech.
+                © {new Date().getFullYear()} Tarun Kumar.
               </p>
             </motion.footer>
           </div>
