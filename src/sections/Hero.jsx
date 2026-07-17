@@ -194,37 +194,8 @@ export default function Hero() {
 
       {/* Mobile Layout (below md) - solid #8B3116 for header, rust-gradient for content */}
       <div className="md:hidden flex flex-col min-h-screen text-cream bg-rust-gradient select-none">
-        {/* Mobile Header Bar - Deep Rust */}
-        <motion.div
-          initial={shouldReduce ? {} : { opacity: 0 }}
-          animate={shouldReduce ? {} : { opacity: 1 }}
-          transition={{ duration: 0.5, ease: ease.smooth }}
-          className="bg-[#8B3116] flex justify-between items-center px-4 py-3 border-b border-cream/20 sticky top-0 z-30"
-        >
-          <div className="w-10 h-10">
-          </div>
-
-          <div className="flex items-center gap-4 text-cream/80">
-            <motion.a
-              href="https://github.com/tarun7kumar"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={shouldReduce ? {} : hover.scale}
-              whileTap={shouldReduce ? {} : tap.press}
-            >
-              <GithubIcon />
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/tarun7kumar/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={shouldReduce ? {} : hover.scale}
-              whileTap={shouldReduce ? {} : tap.press}
-            >
-              <LinkedinIcon />
-            </motion.a>
-          </div>
-        </motion.div>
+        {/* Spacer for fixed global navbar on mobile */}
+        <div className="h-[55px] w-full shrink-0" />
 
         {/* Mobile Image Section */}
         <motion.div

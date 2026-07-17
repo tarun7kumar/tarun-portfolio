@@ -1,6 +1,5 @@
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion';
 import Navbar from '@/components/layout/Navbar';
-import Sidebar from '@/components/layout/Sidebar';
 import Hero from '@/sections/Hero';
 import Skills from '@/sections/Skills';
 import Projects from '@/sections/Projects';
@@ -33,9 +32,6 @@ function App() {
 
       {/* Navbar */}
       <Navbar />
-
-      {/* Sidebar */}
-      <Sidebar />
 
       <main>
         {/* Hero */}
