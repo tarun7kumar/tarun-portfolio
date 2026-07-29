@@ -30,7 +30,7 @@ export const projects = [
       { name: 'Gmail API', icon: '✉️' },
       { name: 'REST API', icon: '🔗' },
     ],
-    github: 'https://github.com/tarun7kumar/campus-flow',
+    github: 'https://github.com/tarun7kumar/CampusFlow',
     link: 'https://campus-flow-ruddy.vercel.app/',
     image: campusflowPreview,
     highlights: [
@@ -51,7 +51,7 @@ export const projects = [
       { name: 'Mistral AI', icon: '🤖' },
       { name: 'Streamlit', icon: '🎯' },
     ],
-    github: 'https://github.com/tarun7kumar/research-mind',
+    github: 'https://github.com/tarun7kumar/ResearchMind',
     link: 'https://research-x-mind.streamlit.app/',
     image: researchmindPreview,
     highlights: [
