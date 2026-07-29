@@ -30,7 +30,7 @@ export default function Hero() {
   const animAnimate = (variant) => shouldReduce ? {} : { animate: variant.animate || variant.whileInView, transition: variant.transition };
 
   return (
-    <section id="hero" className="w-full min-h-screen relative overflow-hidden bg-[#8B3116] font-poppins text-cream">
+    <section className="w-full min-h-screen relative overflow-hidden bg-[#8B3116] font-poppins text-cream">
       {/* Desktop Layout (md and up) */}
       <div className="hidden md:flex h-screen w-full select-none">
 

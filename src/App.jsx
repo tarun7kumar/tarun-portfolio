@@ -1,9 +1,8 @@
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
-import Hero from '@/sections/Hero';
-import Skills from '@/sections/Skills';
-import Projects from '@/sections/Projects';
-import Contact from '@/sections/Contact';
+import Home from '@/pages/Home';
+import AllProjects from '@/pages/AllProjects';
 
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
@@ -18,7 +17,7 @@ function ScrollProgress() {
 
   return (
     <motion.div
-      className="fixed top-[55px] md:top-[70px] left-0 right-0 h-[3px] bg-[#8B3116] origin-left z-50"
+      className="fixed top-[55px] md:top-[70px] left-0 right-0 h-[3px] bg-[#8B3116] origin-left z-50 pointer-events-none"
       style={{ scaleX }}
     />
   );
@@ -26,27 +25,18 @@ function ScrollProgress() {
 
 function App() {
   return (
-    <>
+    <div className="bg-[#F6F1EA] min-h-screen selection:bg-[#A33614]/30 selection:text-[#F6F1EA]">
       {/* Scroll progress indicator */}
       <ScrollProgress />
 
       {/* Navbar */}
       <Navbar />
 
-      <main>
-        {/* Hero */}
-        <Hero />
-
-        {/* Skills */}
-        <Skills />
-
-        {/* Projects */}
-        <Projects />
-
-        {/* Contact */}
-        <Contact />
-      </main>
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<AllProjects />} />
+      </Routes>
+    </div>
   );
 }
 

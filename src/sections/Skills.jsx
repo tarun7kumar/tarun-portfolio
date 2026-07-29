@@ -104,10 +104,7 @@ export default function Skills() {
   const shouldReduce = useReducedMotion();
 
   return (
-    <section
-      id="skills"
-      className="py-24 md:py-32 bg-[#F6F1EA] relative overflow-hidden"
-    >
+    <section className="py-24 md:py-32 bg-[#F6F1EA] relative overflow-hidden min-h-screen">
       {/* Background decorative text */}
       <div className="absolute bottom-[-40px] right-[-30px] select-none pointer-events-none hidden lg:block z-0 opacity-[0.06]">
         <h2 className="text-[14rem] font-geist font-black tracking-tighter leading-none whitespace-nowrap text-[#8B3116]">

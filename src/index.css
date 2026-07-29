@@ -90,12 +90,30 @@
 }
 
 @utility bg-rust-gradient {
-  background: linear-gradient(
+  background-image: linear-gradient(
     135deg,
     #A33614 0%,
     #8B3116 55%,
     #742511 100%
   );
+}
+
+/* ─── 3D Flip Card Utilities ─────────────────────────────────────────────── */
+@utility perspective-1200 {
+  perspective: 1200px;
+}
+
+@utility preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@utility backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-transition {
+  transition: transform 0.7s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 /* Accessibility: respect reduced-motion preference */

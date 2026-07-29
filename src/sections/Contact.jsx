@@ -67,112 +67,107 @@ export default function Contact() {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-24 md:py-32 relative overflow-hidden bg-[#F6F1EA]"
-    >
-      {/* Background decorative text */}
-      <div className="absolute top-1/2 left-[-40px] -translate-y-1/2 select-none pointer-events-none hidden lg:block z-0 opacity-[0.03]">
-        <h2 className="text-[14rem] font-geist font-black tracking-tighter leading-none -rotate-90 whitespace-nowrap text-[#8B3116]">
-          CONTACT
-        </h2>
-      </div>
+    <section className="min-h-screen pt-[80px] pb-12 relative overflow-hidden flex flex-col justify-center items-center">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+      >
+        <source src="/video/0_Sunset_Mountains_1280x720.mp4" type="video/mp4" />
+      </video>
 
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+      {/* Black Overlay around 30% opacity */}
+      <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+
+      {/* Subtle Warm Orange Gradient near bottom */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#A33614]/20 via-transparent to-transparent pointer-events-none" />
+
+      {/* Main Container - Centered floating glassmorphism card (60-70% width on desktop) */}
+      <div className="w-full max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10 mx-auto my-auto">
         <motion.div
           initial={shouldReduce ? {} : { opacity: 0, y: 30 }}
           whileInView={shouldReduce ? {} : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: duration.normal, ease: ease.smooth }}
-          className="flex flex-col items-center"
+          className="w-full bg-[#111111]/45 backdrop-blur-[18px] border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_40px_rgba(163,54,20,0.15)] rounded-[22px] sm:rounded-[24px] p-6 sm:p-8 md:p-10 relative overflow-hidden"
+          style={{ backgroundColor: 'rgba(17, 17, 17, 0.45)' }}
         >
-          {/* Folder Tab */}
-          <div className="w-28 sm:w-36 md:w-48 h-5 sm:h-6 md:h-8 bg-[#1a1a1a] rounded-t-xl relative z-20 translate-y-[1px]" />
-
-          {/* Folder Body */}
-          <div className="w-full bg-[#1a1a1a] rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 relative z-10">
-            {/* Header */}
+          {/* Split Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+            {/* Left Side: Contact Info */}
             <motion.div
-              initial={shouldReduce ? {} : { opacity: 0, y: 20 }}
+              initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
               whileInView={shouldReduce ? {} : { opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: duration.normal, ease: ease.smooth, delay: 0.1 }}
-              className="text-center mb-10 sm:mb-14 md:mb-16"
+              transition={{ duration: duration.normal, ease: ease.smooth, delay: 0.15 }}
+              className="flex flex-col justify-between h-full space-y-6"
             >
-              <span className="inline-block text-[12px] font-poppins font-semibold text-[#A33614] tracking-wider uppercase mb-4">
-                Get in Touch
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-geist font-extrabold text-[#F6F1EA] tracking-[-0.03em]">
-                Open to Opportunities.
-              </h2>
+              <div>
+                <span className="inline-block text-[12px] font-poppins font-semibold text-white tracking-wider uppercase mb-2">
+                  Get in Touch
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-geist font-extrabold text-[#F6F1EA] tracking-[-0.03em] mb-4">
+                  Open to Opportunities.
+                </h2>
+                <h3 className="text-lg font-geist font-bold text-[#F6F1EA]/90 mb-2">
+                  Let's Talk
+                </h3>
+                <p className="font-poppins text-[13px] sm:text-[14px] leading-[1.6] text-[#F6F1EA]/65 mb-5">
+                  Open to internships, full-time opportunities, and exciting projects. If you'd like to collaborate or just say hello, I'd love to hear from you.
+                </p>
+                <a
+                  href="mailto:tkofficial2004@gmail.com"
+                  className="inline-flex items-center gap-2 text-[15px] sm:text-[16px] font-poppins font-semibold text-[#D9B7A6] hover:text-white transition-colors duration-300 border-b border-[#D9B7A6]/30 hover:border-white/50 pb-1 break-all sm:break-normal"
+                >
+                  <MailIcon />
+                  tkofficial2004@gmail.com
+                </a>
+              </div>
+
+              <div>
+                <span className="block text-[11px] font-poppins font-semibold uppercase tracking-wider text-[#F6F1EA]/40 mb-3">
+                  Connect
+                </span>
+                <div className="flex items-center gap-4">
+                  <motion.a
+                    href="https://github.com/tarun7kumar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-10 h-10 rounded-full border border-[#F6F1EA]/15 text-[#F6F1EA]/70 hover:text-[#A33614] hover:border-[#A33614]/40 hover:bg-[#A33614]/10 transition-all duration-300"
+                    whileHover={shouldReduce ? {} : hover.scale}
+                    whileTap={shouldReduce ? {} : tap.press}
+                  >
+                    <GithubIcon />
+                  </motion.a>
+                  <motion.a
+                    href="https://www.linkedin.com/in/tarun7kumar/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-10 h-10 rounded-full border border-[#F6F1EA]/15 text-[#F6F1EA]/70 hover:text-[#A33614] hover:border-[#A33614]/40 hover:bg-[#A33614]/10 transition-all duration-300"
+                    whileHover={shouldReduce ? {} : hover.scale}
+                    whileTap={shouldReduce ? {} : tap.press}
+                  >
+                    <LinkedinIcon />
+                  </motion.a>
+                </div>
+              </div>
             </motion.div>
 
-            {/* Split Content */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-start">
-              {/* Left Side: Contact Info */}
-              <motion.div
-                initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
-                whileInView={shouldReduce ? {} : { opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: duration.normal, ease: ease.smooth, delay: 0.15 }}
-                className="flex flex-col justify-center space-y-10 lg:pr-8"
-              >
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-geist font-bold text-[#F6F1EA] mb-3">
-                    Let's Talk
-                  </h3>
-                  <p className="font-poppins text-[14px] sm:text-[15px] leading-[1.7] text-[#F6F1EA]/55 mb-6">
-                    Open to internships, full-time opportunities, and exciting projects. If you'd like to collaborate or just say hello, I'd love to hear from you.
-                  </p>
-                  <a
-                    href="mailto:tkofficial2004@gmail.com"
-                    className="inline-flex items-center gap-2 text-[16px] sm:text-[18px] font-poppins font-semibold text-[#A33614] hover:text-[#D9B7A6] transition-colors duration-300 border-b border-[#A33614]/30 hover:border-[#D9B7A6]/40 pb-1 break-all sm:break-normal"
-                  >
-                    <MailIcon />
-                    tkofficial2004@gmail.com
-                  </a>
-                </div>
-
-                <div>
-                  <span className="block text-[12px] font-poppins font-semibold uppercase tracking-wider text-[#F6F1EA]/40 mb-5">
-                    Connect
-                  </span>
-                  <div className="flex items-center gap-4">
-                    <motion.a
-                      href="https://github.com/tarun7kumar"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center w-11 h-11 rounded-full border border-[#F6F1EA]/15 text-[#F6F1EA]/60 hover:text-[#A33614] hover:border-[#A33614]/40 hover:bg-[#A33614]/10 transition-all duration-300"
-                      whileHover={shouldReduce ? {} : hover.scale}
-                      whileTap={shouldReduce ? {} : tap.press}
-                    >
-                      <GithubIcon />
-                    </motion.a>
-                    <motion.a
-                      href="https://www.linkedin.com/in/tarun7kumar/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center w-11 h-11 rounded-full border border-[#F6F1EA]/15 text-[#F6F1EA]/60 hover:text-[#A33614] hover:border-[#A33614]/40 hover:bg-[#A33614]/10 transition-all duration-300"
-                      whileHover={shouldReduce ? {} : hover.scale}
-                      whileTap={shouldReduce ? {} : tap.press}
-                    >
-                      <LinkedinIcon />
-                    </motion.a>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Right Side: Form */}
-              <motion.div
-                variants={shouldReduce ? {} : formContainerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                className="bg-[#F6F1EA]/[0.04] border border-[#F6F1EA]/10 rounded-2xl p-5 sm:p-6 md:p-8"
-              >
-                <form className="space-y-5" onSubmit={handleSubmit}>
+            {/* Right Side: Form */}
+            <motion.div
+              variants={shouldReduce ? {} : formContainerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="bg-black/20 border border-white/[0.06] rounded-xl sm:rounded-2xl p-4 sm:p-5"
+            >
+              <form className="space-y-3.5" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <motion.div variants={shouldReduce ? {} : formFieldVariants}>
-                    <label className="block font-poppins text-[13px] font-semibold text-[#F6F1EA]/80 mb-2">
+                    <label className="block font-poppins text-[12px] font-semibold text-[#F6F1EA]/80 mb-1">
                       Your Name
                     </label>
                     <input
@@ -181,12 +176,12 @@ export default function Contact() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Who am I speaking with?"
-                      className="w-full bg-[#F6F1EA] text-[#1a1a1a] placeholder-[#1a1a1a]/35 rounded-lg px-4 py-3 font-poppins text-[14px] outline-none focus:ring-2 focus:ring-[#A33614] transition-all duration-300"
+                      className="w-full bg-[#F6F1EA]/95 text-[#1a1a1a] placeholder-[#1a1a1a]/40 rounded-lg px-3.5 py-2 font-poppins text-[13px] outline-none focus:ring-2 focus:ring-[#A33614] transition-all duration-300"
                     />
                   </motion.div>
 
                   <motion.div variants={shouldReduce ? {} : formFieldVariants}>
-                    <label className="block font-poppins text-[13px] font-semibold text-[#F6F1EA]/80 mb-2">
+                    <label className="block font-poppins text-[12px] font-semibold text-[#F6F1EA]/80 mb-1">
                       Email
                     </label>
                     <input
@@ -194,64 +189,64 @@ export default function Contact() {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Where should I send the magic?"
-                      className="w-full bg-[#F6F1EA] text-[#1a1a1a] placeholder-[#1a1a1a]/35 rounded-lg px-4 py-3 font-poppins text-[14px] outline-none focus:ring-2 focus:ring-[#A33614] transition-all duration-300"
+                      placeholder="Your email address"
+                      className="w-full bg-[#F6F1EA]/95 text-[#1a1a1a] placeholder-[#1a1a1a]/40 rounded-lg px-3.5 py-2 font-poppins text-[13px] outline-none focus:ring-2 focus:ring-[#A33614] transition-all duration-300"
                     />
                   </motion.div>
+                </div>
 
-                  <motion.div variants={shouldReduce ? {} : formFieldVariants}>
-                    <label className="block font-poppins text-[13px] font-semibold text-[#F6F1EA]/80 mb-2">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      value={subject}
-                      onChange={(e) => setSubject(e.target.value)}
-                      placeholder="What's this about?"
-                      className="w-full bg-[#F6F1EA] text-[#1a1a1a] placeholder-[#1a1a1a]/35 rounded-lg px-4 py-3 font-poppins text-[14px] outline-none focus:ring-2 focus:ring-[#A33614] transition-all duration-300"
-                    />
-                  </motion.div>
+                <motion.div variants={shouldReduce ? {} : formFieldVariants}>
+                  <label className="block font-poppins text-[12px] font-semibold text-[#F6F1EA]/80 mb-1">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    placeholder="What's this about?"
+                    className="w-full bg-[#F6F1EA]/95 text-[#1a1a1a] placeholder-[#1a1a1a]/40 rounded-lg px-3.5 py-2 font-poppins text-[13px] outline-none focus:ring-2 focus:ring-[#A33614] transition-all duration-300"
+                  />
+                </motion.div>
 
-                  <motion.div variants={shouldReduce ? {} : formFieldVariants}>
-                    <label className="block font-poppins text-[13px] font-semibold text-[#F6F1EA]/80 mb-2">
-                      Your Message
-                    </label>
-                    <textarea
-                      required
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Tell me everything. I love context."
-                      className="w-full bg-[#F6F1EA] text-[#1a1a1a] placeholder-[#1a1a1a]/35 rounded-lg px-4 py-3 font-poppins text-[14px] outline-none focus:ring-2 focus:ring-[#A33614] transition-all duration-300 h-32 resize-none"
-                    />
-                  </motion.div>
+                <motion.div variants={shouldReduce ? {} : formFieldVariants}>
+                  <label className="block font-poppins text-[12px] font-semibold text-[#F6F1EA]/80 mb-1">
+                    Your Message
+                  </label>
+                  <textarea
+                    required
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Tell me everything. I love context."
+                    className="w-full bg-[#F6F1EA]/95 text-[#1a1a1a] placeholder-[#1a1a1a]/40 rounded-lg px-3.5 py-2 font-poppins text-[13px] outline-none focus:ring-2 focus:ring-[#A33614] transition-all duration-300 h-24 resize-none"
+                  />
+                </motion.div>
 
-                  <motion.div variants={shouldReduce ? {} : formFieldVariants}>
-                    <motion.button
-                      type="submit"
-                      className="w-full bg-[#A33614] text-[#F6F1EA] font-poppins font-semibold text-[14px] py-3.5 rounded-lg hover:bg-[#8B3116] transition-all duration-300 cursor-pointer"
-                      whileHover={shouldReduce ? {} : { y: -2, boxShadow: '0 8px 24px rgba(163, 54, 20, 0.25)', transition: { duration: 0.25, ease: ease.out } }}
-                      whileTap={shouldReduce ? {} : tap.press}
-                    >
-                      Send Message
-                    </motion.button>
-                  </motion.div>
-                </form>
-              </motion.div>
-            </div>
-
-            {/* Footer */}
-            <motion.footer
-              initial={shouldReduce ? {} : { opacity: 0 }}
-              whileInView={shouldReduce ? {} : { opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: duration.slow, ease: ease.smooth, delay: 0.3 }}
-              className="mt-14 sm:mt-16 md:mt-20 pt-6 sm:pt-8 border-t border-[#F6F1EA]/10 text-center"
-            >
-              <p className="font-poppins text-[12px] text-[#F6F1EA]/30 uppercase tracking-[0.15em] font-medium">
-                © {new Date().getFullYear()} Tarun Kumar.
-              </p>
-            </motion.footer>
+                <motion.div variants={shouldReduce ? {} : formFieldVariants}>
+                  <motion.button
+                    type="submit"
+                    className="w-full bg-[#A33614] text-[#F6F1EA] font-poppins font-semibold text-[14px] py-2.5 rounded-lg hover:bg-[#8B3116] transition-all duration-300 cursor-pointer"
+                    whileHover={shouldReduce ? {} : { y: -2, boxShadow: '0 8px 24px rgba(163, 54, 20, 0.25)', transition: { duration: 0.25, ease: ease.out } }}
+                    whileTap={shouldReduce ? {} : tap.press}
+                  >
+                    Send Message
+                  </motion.button>
+                </motion.div>
+              </form>
+            </motion.div>
           </div>
+
+          {/* Footer */}
+          <motion.footer
+            initial={shouldReduce ? {} : { opacity: 0 }}
+            whileInView={shouldReduce ? {} : { opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: duration.slow, ease: ease.smooth, delay: 0.3 }}
+            className="mt-6 pt-4 border-t border-white/[0.08] text-center"
+          >
+            <p className="font-poppins text-[11px] text-[#F6F1EA]/40 uppercase tracking-[0.15em] font-medium">
+              © {new Date().getFullYear()} Tarun Kumar.
+            </p>
+          </motion.footer>
         </motion.div>
       </div>
     </section>
