@@ -41,7 +41,7 @@ export default function StackingCard({
     <div
       ref={containerRef}
       id={id}
-      className="sticky top-0 w-full min-h-screen"
+      className="md:sticky md:top-0 w-full min-h-screen"
       style={{ zIndex }}
     >
       <motion.div

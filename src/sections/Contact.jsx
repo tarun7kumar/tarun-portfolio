@@ -67,7 +67,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="min-h-screen pt-[80px] pb-12 relative overflow-hidden flex flex-col justify-center items-center">
+    <section className="min-h-screen pt-[65px] sm:pt-[80px] pb-8 sm:pb-12 relative overflow-y-auto overflow-x-hidden flex flex-col justify-start sm:justify-center items-center">
       {/* Background Video */}
       <video
         autoPlay
@@ -86,36 +86,36 @@ export default function Contact() {
       <div className="absolute inset-0 bg-gradient-to-t from-[#A33614]/20 via-transparent to-transparent pointer-events-none" />
 
       {/* Main Container - Centered floating glassmorphism card (60-70% width on desktop) */}
-      <div className="w-full max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10 mx-auto my-auto">
+      <div className="w-full max-w-4xl px-3 sm:px-6 lg:px-8 relative z-10 mx-auto my-auto">
         <motion.div
           initial={shouldReduce ? {} : { opacity: 0, y: 30 }}
           whileInView={shouldReduce ? {} : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: duration.normal, ease: ease.smooth }}
-          className="w-full bg-[#111111]/45 backdrop-blur-[18px] border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_40px_rgba(163,54,20,0.15)] rounded-[22px] sm:rounded-[24px] p-6 sm:p-8 md:p-10 relative overflow-hidden"
+          className="w-full bg-[#111111]/45 backdrop-blur-[18px] border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_40px_rgba(163,54,20,0.15)] rounded-[18px] sm:rounded-[24px] p-4 sm:p-8 md:p-10 relative overflow-hidden"
           style={{ backgroundColor: 'rgba(17, 17, 17, 0.45)' }}
         >
           {/* Split Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-8 lg:gap-10 items-start">
             {/* Left Side: Contact Info */}
             <motion.div
               initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
               whileInView={shouldReduce ? {} : { opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: duration.normal, ease: ease.smooth, delay: 0.15 }}
-              className="flex flex-col justify-between h-full space-y-6"
+              className="flex flex-col justify-between h-full space-y-4 sm:space-y-6"
             >
               <div>
                 <span className="inline-block text-[12px] font-poppins font-semibold text-white tracking-wider uppercase mb-2">
                   Get in Touch
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-geist font-extrabold text-[#F6F1EA] tracking-[-0.03em] mb-4">
+                <h2 className="text-2xl sm:text-4xl font-geist font-extrabold text-[#F6F1EA] tracking-[-0.03em] mb-3 sm:mb-4">
                   Open to Opportunities.
                 </h2>
-                <h3 className="text-lg font-geist font-bold text-[#F6F1EA]/90 mb-2">
+                <h3 className="text-base sm:text-lg font-geist font-bold text-[#F6F1EA]/90 mb-1.5 sm:mb-2">
                   Let's Talk
                 </h3>
-                <p className="font-poppins text-[13px] sm:text-[14px] leading-[1.6] text-[#F6F1EA]/65 mb-5">
+                <p className="font-poppins text-[12px] sm:text-[14px] leading-[1.5] sm:leading-[1.6] text-[#F6F1EA]/65 mb-3 sm:mb-5">
                   Open to internships, full-time opportunities, and exciting projects. If you'd like to collaborate or just say hello, I'd love to hear from you.
                 </p>
                 <a
@@ -162,10 +162,10 @@ export default function Contact() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="bg-black/20 border border-white/[0.06] rounded-xl sm:rounded-2xl p-4 sm:p-5"
+              className="bg-black/20 border border-white/[0.06] rounded-xl sm:rounded-2xl p-3 sm:p-5"
             >
-              <form className="space-y-3.5" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <form className="space-y-2.5 sm:space-y-3.5" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5">
                   <motion.div variants={shouldReduce ? {} : formFieldVariants}>
                     <label className="block font-poppins text-[12px] font-semibold text-[#F6F1EA]/80 mb-1">
                       Your Name
@@ -217,7 +217,7 @@ export default function Contact() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Tell me everything. I love context."
-                    className="w-full bg-[#F6F1EA]/95 text-[#1a1a1a] placeholder-[#1a1a1a]/40 rounded-lg px-3.5 py-2 font-poppins text-[13px] outline-none focus:ring-2 focus:ring-[#A33614] transition-all duration-300 h-24 resize-none"
+                    className="w-full bg-[#F6F1EA]/95 text-[#1a1a1a] placeholder-[#1a1a1a]/40 rounded-lg px-3.5 py-2 font-poppins text-[13px] outline-none focus:ring-2 focus:ring-[#A33614] transition-all duration-300 h-20 sm:h-24 resize-none"
                   />
                 </motion.div>
 
@@ -241,7 +241,7 @@ export default function Contact() {
             whileInView={shouldReduce ? {} : { opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: duration.slow, ease: ease.smooth, delay: 0.3 }}
-            className="mt-6 pt-4 border-t border-white/[0.08] text-center"
+            className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-white/[0.08] text-center"
           >
             <p className="font-poppins text-[11px] text-[#F6F1EA]/40 uppercase tracking-[0.15em] font-medium">
               © {new Date().getFullYear()} Tarun Kumar.
