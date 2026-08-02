@@ -188,9 +188,9 @@ export function ProjectCard({ project, index, shouldReduce }) {
         shouldReduce || isFlipped
           ? {}
           : {
-              y: -5,
-              transition: { duration: 0.3, ease: ease.out },
-            }
+            y: -5,
+            transition: { duration: 0.3, ease: ease.out },
+          }
       }
       className="group relative perspective-1200"
     >
@@ -221,15 +221,15 @@ export function ProjectCard({ project, index, shouldReduce }) {
 
           <div className="relative z-10 bg-[#161616] border border-[#F6F1EA]/5 rounded-2xl p-6 sm:p-8 lg:p-10 group-hover:border-[#A33614]/25 group-hover:shadow-[0_16px_48px_rgba(0,0,0,0.4),0_2px_8px_rgba(163,54,20,0.1)] transition-all duration-300">
             <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-stretch">
-              
+
               {/* ── Left Column: Number, Lines & Text ─────────────────────── */}
               <div className="w-full md:w-[45%] relative flex flex-col min-h-full">
-                
+
                 {/* Number & Decorative Lines Container */}
                 <div className="relative mb-6 pt-4">
                   {/* Decorative Horizontal Line */}
                   <div className="absolute left-[-2.5rem] right-0 top-[70%] h-[1px] bg-gradient-to-r from-transparent via-[#F6F1EA]/20 to-[#F6F1EA]/5 z-0" />
-                  
+
                   {/* Decorative Vertical Line */}
                   <div className="absolute left-[3rem] top-[40%] bottom-[-100vh] w-[1px] bg-gradient-to-b from-[#F6F1EA]/20 via-[#F6F1EA]/10 to-transparent z-0 hidden md:block" />
 
@@ -249,11 +249,11 @@ export function ProjectCard({ project, index, shouldReduce }) {
                   <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-poppins font-medium text-[#A33614] mb-6 tracking-wide">
                     {project.tagline}
                   </p>
-                  
+
                   <p className="font-poppins text-[14px] sm:text-[15px] leading-[1.8] text-[#F6F1EA]/60 mb-8">
                     {project.description}
                   </p>
-                  
+
                   {/* Extra Info (if present) */}
                   {project.extraInfo && (
                     <div className="mt-auto pt-5 border-t border-[#F6F1EA]/10">
@@ -289,11 +289,11 @@ export function ProjectCard({ project, index, shouldReduce }) {
                         shouldReduce
                           ? {}
                           : {
-                              scale: 1.03,
-                              y: -2,
-                              boxShadow: '0 8px 20px rgba(163, 54, 20, 0.3)',
-                              transition: { type: 'spring', stiffness: 400, damping: 20 },
-                            }
+                            scale: 1.03,
+                            y: -2,
+                            boxShadow: '0 8px 20px rgba(163, 54, 20, 0.3)',
+                            transition: { type: 'spring', stiffness: 400, damping: 20 },
+                          }
                       }
                       whileTap={shouldReduce ? {} : { scale: 0.96 }}
                     >
@@ -314,11 +314,11 @@ export function ProjectCard({ project, index, shouldReduce }) {
                       shouldReduce
                         ? {}
                         : {
-                            scale: 1.03,
-                            y: -2,
-                            boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)',
-                            transition: { type: 'spring', stiffness: 400, damping: 20 },
-                          }
+                          scale: 1.03,
+                          y: -2,
+                          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)',
+                          transition: { type: 'spring', stiffness: 400, damping: 20 },
+                        }
                     }
                     whileTap={shouldReduce ? {} : { scale: 0.96 }}
                   >
@@ -339,11 +339,11 @@ export function ProjectCard({ project, index, shouldReduce }) {
                       shouldReduce
                         ? {}
                         : {
-                            scale: 1.03,
-                            y: -2,
-                            boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)',
-                            transition: { type: 'spring', stiffness: 400, damping: 20 },
-                          }
+                          scale: 1.03,
+                          y: -2,
+                          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)',
+                          transition: { type: 'spring', stiffness: 400, damping: 20 },
+                        }
                     }
                     whileTap={shouldReduce ? {} : { scale: 0.96 }}
                   >
@@ -393,14 +393,14 @@ export function ProjectCard({ project, index, shouldReduce }) {
                   shouldReduce
                     ? {}
                     : {
-                        scale: 1.05,
-                        y: -2,
-                        transition: {
-                          type: 'spring',
-                          stiffness: 400,
-                          damping: 18,
-                        },
-                      }
+                      scale: 1.05,
+                      y: -2,
+                      transition: {
+                        type: 'spring',
+                        stiffness: 400,
+                        damping: 18,
+                      },
+                    }
                 }
                 whileTap={shouldReduce ? {} : { scale: 0.96 }}
               >

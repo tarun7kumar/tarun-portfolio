@@ -4,6 +4,7 @@ import StackingCard from '@/components/layout/StackingCard';
 import Hero from '@/sections/Hero';
 import Skills from '@/sections/Skills';
 import Projects from '@/sections/Projects';
+import Certificates from '@/sections/Certificates';
 import Contact from '@/sections/Contact';
 
 export default function Home() {
@@ -51,6 +52,11 @@ export default function Home() {
         {/* Projects */}
         <div id="projects" className="relative w-full bg-[#1a1a1a] rounded-t-[2.5rem] md:rounded-t-[3.5rem] shadow-[0_-25px_60px_rgba(0,0,0,0.35)] border-t border-white/10 pointer-events-auto" style={{ zIndex: 30 }}>
           <Projects />
+        </div>
+
+        {/* Certifications */}
+        <div id="certifications" className="relative w-full bg-[#141414] rounded-t-[2.5rem] md:rounded-t-[3.5rem] shadow-[0_-25px_60px_rgba(0,0,0,0.35)] border-t border-[#A33614]/15 pointer-events-auto" style={{ zIndex: 40 }}>
+          <Certificates />
         </div>
       </main>
 
